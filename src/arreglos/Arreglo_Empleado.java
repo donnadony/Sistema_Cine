@@ -10,7 +10,7 @@ public class Arreglo_Empleado {
 	
 	public Arreglo_Empleado() {
 		emp = new ArrayList <Empleado> ();
-		emp.add(new Empleado(10001,0,"Nombre1","Apaterno1","Amaterno1","",""));
+		emp.add(new Empleado(10001,0,"Juanito","Apaterno1","Amaterno1","",""));
 		emp.add(new Empleado(10002,1,"Nombre2","Apaterno2","Amaterno2","",""));
 		emp.add(new Empleado(10003,2,"Nombre3","Apaterno4","Amaterno3","",""));
 		emp.add(new Empleado(10004,0,"Nombre4","Apaterno4","Amaterno4","",""));
