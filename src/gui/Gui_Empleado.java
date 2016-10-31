@@ -27,6 +27,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Gui_Empleado extends JDialog implements ActionListener {
 	
@@ -83,6 +85,12 @@ public class Gui_Empleado extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public Gui_Empleado() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				
+			}
+		});
 		setResizable(false);
 		setTitle("Empleados");
 		setBounds(100, 100, 613, 591);
@@ -124,6 +132,11 @@ public class Gui_Empleado extends JDialog implements ActionListener {
 		}
 		{
 			btnEliminar = new JButton("Eliminar");
+			btnEliminar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					eliminarEmpleado();
+				}
+			});
 			btnEliminar.setBounds(510, 174, 89, 23);
 			getContentPane().add(btnEliminar);
 		}
@@ -305,9 +318,8 @@ public class Gui_Empleado extends JDialog implements ActionListener {
 		
 	}
 	void eliminarEmpleado(){
-		
+		modelo.removeRow(tblTable.getSelectedRow());
 	}
-	
 	
 	void listar() {
 		modelo.setRowCount(0);
@@ -324,7 +336,10 @@ public class Gui_Empleado extends JDialog implements ActionListener {
 			modelo.addRow(fila);
 		}
 	}	
-
+	
+	void cargar(java.awt.event.MouseEvent evt){
+		System.out.println(evt.getComponent());
+	}
 	int Codigo() {
 		return Integer.parseInt(txtCodigo.getText());
 	}
